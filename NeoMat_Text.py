@@ -28,15 +28,16 @@ class Matrix:
         
     def scroll(self, text):
         
-        #iterate through every column, characters are 5 wide
-        for i in range(len(text)*5+5): 
-            #start with a bank frame buffer
-            self.fb.fill(0) 
-            #each time we refil the frame buffer with the text starting one place futher to the left so that 
-            #the text scrolls towards the left (hence the -1)
-            self.fb.text(text, -1*i, 0, True)
-            self.neo_print_buffer(self.fb)
-            self.pixels.show()
+        #iterate through each letter taking a slice of letters just larger than the display and sliding them accross it    
+        for i in range(len(text)+1):
+            cText = text[i:i+3]
+            for j in range(charWidth+1):
+                self.fb.fill(0)
+                self.fb.text(cText, -1*(j), 0, True)
+                #each time we refil the frame buffer with the text starting one place futher to the left so that 
+                #the text scrolls towards the left (hence the -1)
+                self.neo_print_buffer(self.fb)
+                self.pixels.show()
         else:
             #when finished turn all the LEDs off as sometimes the last column will be on
             self.fb.fill(0)
