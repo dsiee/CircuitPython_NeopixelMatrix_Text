@@ -1,7 +1,7 @@
 import board as board
 import neopixel as neopixel
 import adafruit_framebuf as adafruit_framebuf
-
+from math import ceil
 
 class Matrix:
     def __init__(self, pin, width, height, color):
@@ -27,10 +27,11 @@ class Matrix:
 
         
     def scroll(self, text):
-        
+        charBufSize = ceil(self.width/5)
+        charWidth = 5
         #iterate through each letter taking a slice of letters just larger than the display and sliding them accross it    
         for i in range(len(text)+1):
-            cText = text[i:i+3]
+            cText = text[i:i+charBufSize]
             for j in range(charWidth+1):
                 self.fb.fill(0)
                 self.fb.text(cText, -1*(j), 0, True)
