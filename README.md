@@ -2,7 +2,7 @@
 A CircuitPython Library that allows scrolling text to be displayed on a neopixel matrix (or other ws2812). Tested on CircuitPython 4 with a 8x8 ws2812 matrix. 
 
 
-This requires the neopixel and adafruit_framebuf libraries to also be installed.
+This requires the font5x8.bin file in the root directory and the neopixel and adafruit_framebuf libraries to be in the lib folder of the CIRCUITPY drive.
 
 To use:
 1.  import NeoMat_Text.
