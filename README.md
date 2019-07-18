@@ -11,6 +11,6 @@ mat = NeoMat_Test.Matrix(pin, width, height, color)
 3. pass it text to the .scroll function e.g:
 mat.scroll("Banana")
 
-The text currently scrolls as fast as it can (about .5s per frame on an nrf52840 running circuitpython 4.0.1)
+The text currently scrolls as fast as it can (about .2s per frame on an nrf52840 running circuitpython 4.0.1)
 
 See examples for a usable example.
